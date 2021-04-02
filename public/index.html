@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tic Tac Toe</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+
+    <style>
+      th, td {
+        border: 1px solid black;
+        padding:50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1 >Tic Tac Toe </h1>
+      <!-- <p v-if='checkifWinner'> {{checkifWinner}}</p> -->
+      <p >{{message}}</p>
+
+      <div id='game' style='display: flex;  vertical-align: middle; align-content: center; '/>
+        <!-- tic tac toe board -->
+        <table class='board' >        
+            <tr v-for="i in 3"  >
+                <td v-for="j in 3" @click="play(i-1, j-1)" >{{board[i-1][j-1]}}</td>
+              </tr>
+        </table>
+
+
+        <!-- score board -->
+        <table class='scoreboard'>
+          <th style='border: None; border-bottom:1px solid black;border-right:1px solid black; padding:15px; text-align:center;'>User</th>
+          <th style='border: None; border-bottom:1px solid black; padding:2px; text-align:center;'>Computer </th> 
+          <tr style=''>
+            <td style='border:None; border-right:1px solid black; padding:2px; text-align:center;'>{{user_score}}</td>
+            <td style='border:None; padding:2px; text-align:center;'>{{computer_score}}</td>
+          </tr>
+        </table>
+      </div>
+
+      <button type="reset" @click='resetBoard' >Reset</button>
+
+
+      
+    </div>
+  </body>
+</html>
